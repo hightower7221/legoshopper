@@ -51,7 +51,7 @@ export class PriceFinderComponent implements OnInit {
   ) {
     this.results = null;
     this.prices = null;
-    submitted = false;
+    this.submitted = false;
   }
 
   ngOnInit() {}
@@ -75,7 +75,7 @@ export class PriceFinderComponent implements OnInit {
     console.log('erg: ' + this.results);
   };
 
-  getPrices(itemid) {
+  getPrices(itemid:string) {
     this.loading = true;
     this.errorMessage = '';
     this._PriceService.getPrice(itemid).subscribe(
