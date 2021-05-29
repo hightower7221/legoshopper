@@ -1,0 +1,19 @@
+<div>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    {{ userForm.value | json }}
+    <div>
+      21055
+      <input id="itemid" type="text" value="21055" name="itemid" ngModel />
+    </div>
+    <div>
+      Erg
+      <input id="erg" type="text" name="erg" ngModel />
+    </div>
+    <button class="button" type="submit">find</button>
+  </form>
+</div>
+<div>
+  <pre>{{ prices | json }}</pre>
+  <pre>{{ errorMessage | json }}</pre>
+  <app-price-display></app-price-display>
+</div>
