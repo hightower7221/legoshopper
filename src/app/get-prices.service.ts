@@ -6,7 +6,7 @@ import { Price } from './price';
 export class GetPricesService {
   constructor(private http: HttpClient) {}
 
-  getPrice(itemid) {
+  getPrice(itemid:string) {
     let url = 'http://34.255.213.157:8080/price/?itemid=' + itemid;
     console.log('url: ' + url);
     return this.http.get<Price>(url, { responseType: 'json' });

@@ -42,16 +42,20 @@ export class PriceFinderComponent implements OnInit {
   private results: Observable<Price[]>;
   prices: Price;
   loading: boolean = false;
-  errorMessage;
+  errorMessage: string;
+  submitted: boolean;
 
   constructor(
     private http: HttpClient,
     private _PriceService: GetPricesService
-  ) {}
+  ) {
+    this.results = null;
+    this.prices = null;
+    submitted = false;
+  }
 
   ngOnInit() {}
 
-  submitted = false;
   avg = 0;
 
   onSubmit = function(values) {
