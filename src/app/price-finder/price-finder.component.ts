@@ -33,7 +33,7 @@ export class PriceFinderComponent implements OnInit {
     private _PriceService: GetPricesService
   ) {
     this.results = null;
-    this.prices = null;
+    this.prices = new Price(0, '-', 0, 0, 0, 0, 0, 0, '-', '-', '-', '-');
     this.submitted = false;
   }
 

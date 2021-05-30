@@ -1,22 +1,39 @@
 <div>
   <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
-    {{ userForm.value | json }}
-    <div>
-      21055
-      <input id="itemid" type="text" value="21055" name="itemid" ngModel />
+    <div class="Row">
+      <div class="Column">
+        <input
+          id="itemid"
+          type="text"
+          value="21055"
+          name="itemid"
+          class="InputField"
+          ngModel
+        />
+      </div>
+      <div class="ColumnFind">
+        <button class="button" type="submit">find</button>
+      </div>
     </div>
-    <div>
-      Erg
-      <input id="erg" type="text" name="erg" ngModel />
-    </div>
-    <button class="button" type="submit">find</button>
   </form>
 </div>
 <div>
-  <div><span>Item</span> {{ prices.itemId }}</div>
+  <div><span>Set:</span> {{ prices.itemId }}</div>
+  <div>
+    <span>Preise akt:</span> {{ prices.min }} / {{ prices.avg }} / {{ prices.max
+    }}
+  </div>
+  <div>
+    <span>Preise 6 Mon:</span> {{ prices.min6 }} / {{ prices.avg6 }} / {{
+    prices.max6 }}
+  </div>
+  <div>
+    <span>Anbieter / Sets:</span> {{ prices.countItems }} / {{ prices.countTotal
+    }}
+  </div>
 </div>
 <div>
+  <pre>{{ userForm.value | json }}</pre>
   <pre>{{ prices | json }}</pre>
   <pre>{{ errorMessage | json }}</pre>
-  <app-price-display></app-price-display>
 </div>

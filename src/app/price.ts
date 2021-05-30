@@ -13,4 +13,8 @@ export class Price {
     public countTotal6: string,
     public countItems6: string
   ) {}
+
+
+
+  
 }

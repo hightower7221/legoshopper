@@ -1,0 +1,19 @@
+.Row {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0px;
+  position: relative;
+}
+.Column {
+  display: table-cell;
+  width: 80%;
+ 
+}
+.ColumnFind {
+  display: table-cell;
+  width: 20%;
+ }
+.InputField {
+  width: 100%;
+}
