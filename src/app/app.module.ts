@@ -10,6 +10,7 @@ import { PriceDisplayComponent } from './price-display/price-display.component';
 import { GetPricesService } from './get-prices.service';
 import { AppRoutingModule } from './app-routing.module';
 import { EolDisplayComponent } from './eol-display/eol-display.component';
+import { GetEolService } from './get-eol.service';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, HttpClientModule, AppRoutingModule],
@@ -21,6 +22,6 @@ import { EolDisplayComponent } from './eol-display/eol-display.component';
     EolDisplayComponent
   ],
   bootstrap: [AppComponent],
-  providers: [GetPricesService]
+  providers: [GetPricesService, GetEolService]
 })
 export class AppModule {}
