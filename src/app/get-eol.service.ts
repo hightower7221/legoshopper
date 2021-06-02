@@ -6,7 +6,7 @@ import { Eol } from './eol';
 export class GetEolService {
   constructor(private http: HttpClient) {}
 
-  getEols(catid: number) {
+  getEols(catid: string) {
     let url = 'http://34.247.14.80/api/eol/?cat=' + catid;
     console.log('url: ' + url);
     return this.http.get(url, { responseType: 'json' });

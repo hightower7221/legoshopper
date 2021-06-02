@@ -1,10 +1,16 @@
 Category:
-<select name="cat" id="cat">
+<select name="cat" id="cat" class="form-control" #t (change)="getEols(t.value)">
   <option *ngFor="let acat of cats" value="{{acat.id}}">{{acat.name}}</option>
 </select>
 
-<ul>
-    <li *ngFor="let aeol of eols">
-      {{ aeol.name }}
-    </li>
-  </ul>
+<table>
+  <tr *ngFor="let aeol of eols">
+    <td>{{ aeol.id }}</td>
+    <td>{{ aeol.name }}</td>
+    <td>{{ aeol.release }}</td>
+    <td>{{ aeol.uvp }}</td>
+    <td>{{ aeol.heat }}</td>
+    <td>{{ aeol.isEOL }}</td>
+  </tr>
+  <table></table>
+</table>

@@ -37,32 +37,24 @@ export class EolDisplayComponent implements OnInit {
     new EolCat(24, 'Specials')
   ];
 
-   eols: Eol[]= [];
-   loading: boolean = false;
-   errorMessage: string;
-   submitted: boolean;
+  eols: Eol[] = [];
+  loading: boolean = false;
+  errorMessage: string;
+  submitted: boolean;
 
   constructor(private _GetEolService: GetEolService) {}
 
   ngOnInit() {
-    this.getEols(1);
+    this.getEols("1");
   }
 
-
- getEols(catid: number) {
+  getEols(catid: string) {
     this.loading = true;
     this.errorMessage = '';
-    this._GetEolService.getEols(catid).subscribe(
-      (response: Eol[]) => {
-        //next() callback
-        console.log('response received');
-        this.eols = response;
-      }
-    );
-/*
-(products: Product[])=>{
-      this.products = products;
-*/
-
-}
+    this._GetEolService.getEols(catid).subscribe((response: Eol[]) => {
+      //next() callback
+      console.log('response received');
+      this.eols = response;
+    });
+  }
 }
