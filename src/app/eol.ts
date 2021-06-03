@@ -8,7 +8,9 @@ constructor(
     public uvp: number,
     public heat: number,
     public origin: string,
-    public isEOL: number,
+    public eol: number,
+    public maxbp: number,
+    public rating: number,
     public Updated: Date,
     public Created: Date
     ){

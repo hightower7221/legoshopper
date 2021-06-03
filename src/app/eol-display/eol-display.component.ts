@@ -34,7 +34,8 @@ export class EolDisplayComponent implements OnInit {
     new EolCat(21, 'Stranger Things'),
     new EolCat(22, 'Technic'),
     new EolCat(23, 'LEGO Movie'),
-    new EolCat(24, 'Specials')
+    new EolCat(24, '18 Plus'),
+    new EolCat(25, 'Specials')
   ];
 
   eols: Eol[] = [];
@@ -45,7 +46,7 @@ export class EolDisplayComponent implements OnInit {
   constructor(private _GetEolService: GetEolService) {}
 
   ngOnInit() {
-    this.getEols("1");
+    this.getEols('1');
   }
 
   getEols(catid: string) {
