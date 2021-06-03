@@ -1,22 +1,33 @@
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
 }
 
-td.heat1{
+td.main {
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+.fatbig {
+  font-size: 2.5em;
+}
+
+td.heat1 {
   background-color: #00ff00;
 }
-td.heat2{
-  background-color: #00AA00;
+td.heat2 {
+  background-color: #00aa00;
 }
-td.heat3{
+td.heat3 {
   background-color: #ffff99;
 }
-td.heat4{
+td.heat4 {
   background-color: #fffb00;
 }
-td.heat5{
+td.heat5 {
   background-color: #ff0000;
 }
-td.heat6{
+td.heat6 {
   background-color: #6d0000;
 }
