@@ -2,23 +2,34 @@ Category:
 <select
   name="cat"
   id="cat"
-  class="form-control "
+  class="form-control select"
   #t
   (change)="getEols(t.value)"
 >
   <option *ngFor="let acat of cats" value="{{acat.id}}">{{acat.name}}</option>
 </select>
-
+<br /><br />
 <table>
+  <tr>
+    <td class="head">H</td>
+    <td class="head">R</td>
+    <td class="head">EOL</td>
+    <td class="head">Nr</td>
+    <td class="head">Name</td>
+    <td class="head">UVP</td>
+    <td class="head">Max</td>
+    <td class="head">Release</td>
+  </tr>
+
   <tr *ngFor="let aeol of eols">
     <td class="heat{{ aeol.heat }}">{{ aeol.heat }}</td>
+    <td class="rating{{ aeol.rating }}">{{ aeol.rating }}</td>
+    <td class="eol{{ aeol.eol }}">{{ aeol.eol }}</td>
     <td class="main">{{ aeol.id }}</td>
     <td class="main">{{ aeol.name }}</td>
-    <td>{{ aeol.uvp }}</td>
-    <td>{{ aeol.maxbp }}</td>
-    <td>{{ aeol.rating }}</td>
-    <td>{{ aeol.release }}</td>
-    <td>{{ aeol.eol }}</td>
+    <td class="main ">{{ aeol.uvp }}</td>
+    <td class="main ">{{ aeol.maxbp }}</td>
+    <td class="main ">{{ aeol.release }}</td>
   </tr>
   <table></table>
 </table>
