@@ -1,5 +1,11 @@
 Category:
-<select name="cat" id="cat" class="form-control " #t (change)="getEols(t.value)">
+<select
+  name="cat"
+  id="cat"
+  class="form-control "
+  #t
+  (change)="getEols(t.value)"
+>
   <option *ngFor="let acat of cats" value="{{acat.id}}">{{acat.name}}</option>
 </select>
 
@@ -16,3 +22,5 @@ Category:
   </tr>
   <table></table>
 </table>
+
+{{Eol}}
