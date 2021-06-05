@@ -10,17 +10,6 @@ Category:
     >{{acat.name}}</option
   >
 </select>
-/
-
-<select
-  name="cat1"
-  id="cat1"
-  class="form-control select"
-  #t
-  (change)="getEols(t.value)"
->
-  <option *ngFor="let acat of cats" value="{{acat.id}}">{{acat.name}}</option>
-</select>
 
 <br /><br />
 <table>
