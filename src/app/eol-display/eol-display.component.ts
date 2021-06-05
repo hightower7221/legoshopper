@@ -39,6 +39,7 @@ export class EolDisplayComponent implements OnInit {
   ];
 
   eols: Eol[] = [];
+  eolcats: EolCat[] = [];
   loading: boolean = false;
   errorMessage: string;
   submitted: boolean;
@@ -46,7 +47,18 @@ export class EolDisplayComponent implements OnInit {
   constructor(private _GetEolService: GetEolService) {}
 
   ngOnInit() {
+    this.getCats();
     this.getEols('1');
+  }
+
+  getCats() {
+    this.loading = true;
+    this.errorMessage = '';
+    this._GetEolService.getEolCats().subscribe((response: EolCat[]) => {
+      //next() callback
+      console.log('response received');
+      this.eolcats = response;
+    });
   }
 
   getEols(catid: string) {

@@ -13,4 +13,11 @@ export class GetEolService {
 
     //return this.http.get(`https://conduit.productionready.io/api/profiles/eric`);
   }
+
+  getEolCats() {
+    let url = 'http://34.247.14.80/api/eolcat';
+    console.log('url: ' + url);
+    return this.http.get(url, { responseType: 'json' });
+    //return this.http.get(`https://conduit.productionready.io/api/profiles/eric`);
+  }
 }
