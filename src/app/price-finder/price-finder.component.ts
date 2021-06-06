@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+// import { FormControl } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable, throwError } from 'rxjs';
+/*
 import {
   map,
   catchError,
@@ -12,6 +13,7 @@ import {
   switchMap,
   tap
 } from 'rxjs/operators';
+*/
 import { Price } from '../price';
 import { GetPricesService } from '../get-prices.service';
 
@@ -22,6 +24,9 @@ import { GetPricesService } from '../get-prices.service';
   providers: [GetPricesService]
 })
 export class PriceFinderComponent implements OnInit {
+  env: number = 1;
+  moc_prices = new Price(4, '75892-1', 10, 19, 13, 10, 100, 22, '158', '28', '150', '2092');
+  
   private results: Observable<Price[]>;
   prices: Price;
   loading: boolean = false;
@@ -49,6 +54,8 @@ export class PriceFinderComponent implements OnInit {
   };
 
   getPrices(itemid: string) {
+
+    if(this.env==1){
     this.loading = true;
     this.errorMessage = '';
     this._PriceService.getPrice(itemid).subscribe(
@@ -70,5 +77,10 @@ export class PriceFinderComponent implements OnInit {
         this.loading = false;
       }
     );
+    }
+    else
+    {
+      this.prices = this.moc_prices;
+    }
   }
 }

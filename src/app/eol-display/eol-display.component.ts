@@ -10,7 +10,9 @@ import { GetEolService } from '../get-eol.service';
   providers: [GetEolService]
 })
 export class EolDisplayComponent implements OnInit {
-  cats: EolCat[] = [
+  env: number = 1;
+
+  cats_moc: EolCat[] = [
     new EolCat(1, 'Architecture'),
     new EolCat(2, 'BrickHeadz'),
     new EolCat(3, 'City'),
@@ -38,6 +40,23 @@ export class EolDisplayComponent implements OnInit {
     new EolCat(25, 'Specials')
   ];
 
+  eols_moc: Eol[] = [
+    new Eol(
+      '70419-1',
+      11,
+      'Gekenterter Garnelenkutter',
+      '2019/08',
+      29,
+      6,
+      'SI',
+      1,
+      24,
+      1,
+      new Date(Date.now()),
+      new Date(Date.now())
+    )
+  ];
+
   eols: Eol[] = [];
   eolcats: EolCat[] = [];
   loading: boolean = false;
@@ -52,22 +71,30 @@ export class EolDisplayComponent implements OnInit {
   }
 
   getCats() {
-    this.loading = true;
-    this.errorMessage = '';
-    this._GetEolService.getEolCats().subscribe((response: EolCat[]) => {
-      //next() callback
-      console.log('response received');
-      this.eolcats = response;
-    });
+    if (this.env == 1) {
+      this.loading = true;
+      this.errorMessage = '';
+      this._GetEolService.getEolCats().subscribe((response: EolCat[]) => {
+        //next() callback
+        console.log('response received');
+        this.eolcats = response;
+      });
+    } else {
+      this.eolcats = this.cats_moc;
+    }
   }
 
   getEols(catid: string) {
-    this.loading = true;
-    this.errorMessage = '';
-    this._GetEolService.getEols(catid).subscribe((response: Eol[]) => {
-      //next() callback
-      console.log('response received');
-      this.eols = response;
-    });
+    if (this.env == 1) {
+      this.loading = true;
+      this.errorMessage = '';
+      this._GetEolService.getEols(catid).subscribe((response: Eol[]) => {
+        //next() callback
+        console.log('response received');
+        this.eols = response;
+      });
+    } else {
+      this.eols = this.eols_moc;
+    }
   }
 }
