@@ -6,8 +6,14 @@ import { Price } from './price';
 export class GetPricesService {
   constructor(private http: HttpClient) {}
 
-  getPrice(itemid:string) {
-    let url = 'http://34.247.14.80/api/price/?itemid=' + itemid;
+  getPrice(itemid: string, itemtype: string, forceload: boolean) {
+    let url =
+      'http://34.247.14.80/api/price/?itemid=' +
+      itemid +
+      '&itemtype=' +
+      itemtype +
+      '&forceload=' +
+      forceload;
     console.log('url: ' + url);
     return this.http.get<Price>(url, { responseType: 'json' });
 

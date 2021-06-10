@@ -25,13 +25,43 @@ import { GetPricesService } from '../get-prices.service';
 })
 export class PriceFinderComponent implements OnInit {
   env: number = 1;
-  moc_prices = new Price(4, '75892-1', 10, 19, 13, 10, 100, 22, '158', '28', '150', '2092');
-  
+  moc_prices = new Price(
+    4,
+    '75892-1',
+    10,
+    19,
+    13,
+    10,
+    100,
+    22,
+    '158',
+    '28',
+    '150',
+    '2092'
+  );
+
+  TypeList: String[] = [
+    'SET',
+    'PART',
+    'MINIFIG',
+    'PART',
+    'BOOK',
+    'GEAR',
+    'CATALOG',
+    'INSTRUCTION',
+    'UNSORTED_LOT',
+    'ORIGINAL_BOX'
+  ];
+
+  //MINIFIG, PART, SET, BOOK, GEAR, CATALOG, INSTRUCTION, UNSORTED_LOT, ORIGINAL_BOX;
+
   private results: Observable<Price[]>;
   prices: Price;
   loading: boolean = false;
   errorMessage: string;
   submitted: boolean;
+  forceload: boolean = false;
+  itemtype: string = 'SET';
 
   constructor(
     private http: HttpClient,
@@ -54,32 +84,31 @@ export class PriceFinderComponent implements OnInit {
   };
 
   getPrices(itemid: string) {
-
-    if(this.env==1){
-    this.loading = true;
-    this.errorMessage = '';
-    this._PriceService.getPrice(itemid).subscribe(
-      response => {
-        //next() callback
-        console.log('response received');
-        this.prices = response;
-      },
-      error => {
-        //error() callback
-        console.error('Request failed with error');
-        this.errorMessage = error;
-        console.error('MSG: ' + this.errorMessage);
-        this.loading = false;
-      },
-      () => {
-        //complete() callback
-        console.error('Request completed'); //This is actually not needed
-        this.loading = false;
-      }
-    );
-    }
-    else
-    {
+    if (this.env == 1) {
+      this.loading = true;
+      this.errorMessage = '';
+      this._PriceService
+        .getPrice(itemid, this.itemtype, this.forceload)
+        .subscribe(
+          response => {
+            //next() callback
+            console.log('response received');
+            this.prices = response;
+          },
+          error => {
+            //error() callback
+            console.error('Request failed with error');
+            this.errorMessage = error;
+            console.error('MSG: ' + this.errorMessage);
+            this.loading = false;
+          },
+          () => {
+            //complete() callback
+            console.error('Request completed'); //This is actually not needed
+            this.loading = false;
+          }
+        );
+    } else {
       this.prices = this.moc_prices;
     }
   }

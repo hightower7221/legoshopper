@@ -15,7 +15,27 @@
         <button class="button" type="submit">find</button>
       </div>
     </div>
+    <div class="Row">
+      <div class="Column">
+        Type:
+        <select
+  name="itemtype"
+  id="itemtype"
+  class="form-control select"
+  #t
+[(ngModel)]="itemtype"
+
+  >
+  <option *ngFor="let aType of TypeList" value="{{aType}}"
+    >{{aType}}</option
+  >
+</select>
+      </div>
+      <div class="Column">Force load: <input type="checkbox" id="forceload" name="forceload" [(ngModel)]="forceload"
+         > </div>
+    </div>
   </form>
+  <BR>
 </div>
 <div>
   <div><span>Set:</span> {{ prices.itemId }}</div>
@@ -37,10 +57,9 @@
   </div>
 </div>
 
-<!--
+
 <div>
   <pre>{{ userForm.value | json }}</pre>
   <pre>{{ prices | json }}</pre>
   <pre>{{ errorMessage | json }}</pre>
 </div>
--->
